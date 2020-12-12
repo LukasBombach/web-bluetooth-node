@@ -1,0 +1,10 @@
+{
+  "name": "@web-bluetooth-node/monorepo",
+  "repository": "git@github.com:LukasBombach/web-bluetooth-node.git",
+  "author": "Lukas Bombach <lukasbombach@googlemail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
