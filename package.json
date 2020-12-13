@@ -6,5 +6,9 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "@types/node": "^14.14.13",
+    "@types/web-bluetooth": "^0.0.9"
+  }
 }
