@@ -1,0 +1,18 @@
+{
+  "name": "@web-bluetooth-node/test-adapter",
+  "version": "1.0.0",
+  "license": "MIT",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "dependencies": {
+    "microbundle": "0.12.4"
+  },
+  "devDependencies": {
+    "@web-bluetooth-node/types": "1.0.0"
+  }
+}

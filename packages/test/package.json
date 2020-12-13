@@ -10,6 +10,8 @@
     "@babel/preset-env": "7.12.10",
     "@babel/preset-typescript": "7.12.7",
     "@types/jest": "26.0.19",
+    "@web-bluetooth-node/test-adapter": "1.0.0",
+    "@web-bluetooth-node/types": "1.0.0",
     "babel-jest": "26.6.3",
     "jest": "26.6.3"
   }

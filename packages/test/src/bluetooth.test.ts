@@ -1,15 +1,7 @@
-export interface NodeBluetooth extends Omit<Bluetooth, "requestDevice"> {
-  requestDevice(
-    options?: NodeRequestDeviceOptions,
-    callback?: (device: NodeBluetoothDevice) => Promise<boolean> | boolean
-  ): Promise<BluetoothDevice>;
-}
-
-interface NodeRequestDeviceOptions {
-  filters?: BluetoothRequestDeviceFilter[];
-  optionalServices?: BluetoothServiceUUID[];
-  acceptAllDevices?: boolean;
-}
+import type {
+  NodeBluetooth,
+  NodeBluetoothDeviceOptions,
+} from "@web-bluetooth-node/types";
 
 const bluetooth: NodeBluetooth = {
   requestDevice: async (options, callback) => {
@@ -22,14 +14,6 @@ const bluetooth: NodeBluetooth = {
     return new NodeBluetoothDevice({ id, watchingAdvertisements, name, uuids });
   },
 } as NodeBluetooth;
-
-interface NodeBluetoothDeviceOptions {
-  id: string;
-  watchingAdvertisements: boolean;
-  name?: string;
-  gatt?: BluetoothRemoteGATTServer;
-  uuids?: string[];
-}
 
 export class NodeBluetoothDevice implements BluetoothDevice {
   readonly id: string;
