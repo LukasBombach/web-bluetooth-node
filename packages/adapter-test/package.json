@@ -5,6 +5,10 @@
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
+  "files": [
+    "index.ts",
+    "src/**/*.*"
+  ],
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch"
