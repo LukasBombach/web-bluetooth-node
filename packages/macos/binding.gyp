@@ -1,7 +1,7 @@
 {
     'targets': [
         {
-            'target_name': 'node-core-bluetooth',
+            'target_name': 'web-bluetooth-macos',
             "sources": [
                 "src/main.cpp",
                 "src/functionexample.cpp",
