@@ -2,7 +2,7 @@
     'targets': [
         {
             'target_name': 'macostest',
-            'sources': ['src/macostest.mm'],
+            'sources': ['src/Photo.mm', 'src/napi_objc.mm'],
             'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")"],
             'dependencies': ["<!(node -p \"require('node-addon-api').gyp\")"],
             'cflags!': ['-fno-exceptions'],

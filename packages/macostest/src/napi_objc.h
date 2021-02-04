@@ -3,10 +3,5 @@
 #import <Foundation/Foundation.h>
 #include <napi.h>
 
-NSArray* getUuidArray(const Napi::Value& value);
-BOOL getBool(const Napi::Value& value, BOOL def);
 
-NSString* napiToUuidString(Napi::String string);
-NSArray* napiToUuidArray(Napi::Array array);
-NSData* napiToData(Napi::Buffer<Byte> buffer);
-NSNumber* napiToNumber(Napi::Number number);
+NSString* getNSString(Napi::String string);

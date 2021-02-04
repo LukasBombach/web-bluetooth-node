@@ -1,6 +1,7 @@
+#include "napi_objc.h"
 #import "Photo.h"
 
-@implementation Photo
+/* @implementation Photo
 
 - (id) init
 {
@@ -33,3 +34,37 @@
 }
 
 @end
+ */
+
+Photo::Photo(const Napi::CallbackInfo& info) : ObjectWrap(info) {
+    caption = @"Default Caption";
+    photographer = @"Default Photographer";
+}
+
+Napi::Value Photo::setCaption(const Napi::CallbackInfo& info) {
+    NSString* input = getNSString(info[0].As<Napi::String>());
+    caption = input;
+    return Napi::Value();
+}
+
+Napi::Value Photo::setPhotographer(const Napi::CallbackInfo& info) {
+    NSString* input = getNSString(info[0].As<Napi::String>());
+    photographer = input;
+    return Napi::Value();
+}
+
+Napi::Function Photo::GetClass(Napi::Env env) {
+    return DefineClass(env, "Photo", {
+        Photo::InstanceMethod("setCaption", &Photo::setCaption),
+        Photo::InstanceMethod("setPhotographer", &Photo::setPhotographer),
+    });
+}
+
+
+Napi::Object Init(Napi::Env env, Napi::Object exports) {
+    Napi::String name = Napi::String::New(env, "Photo");
+    exports.Set(name, Photo::GetClass(env));
+    return exports;
+}
+
+NODE_API_MODULE(addon, Init)
