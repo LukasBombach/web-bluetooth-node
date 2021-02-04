@@ -24,6 +24,10 @@ public:
     Photo(const Napi::CallbackInfo&);
     Napi::Value setCaption(const Napi::CallbackInfo&);
     Napi::Value setPhotographer(const Napi::CallbackInfo&);
+    // Napi::String getCaption(const Napi::CallbackInfo&);
+    // Napi::String getPhotographer(const Napi::CallbackInfo&);
+    std::string getCaption(const Napi::CallbackInfo&);
+    std::string getPhotographer(const Napi::CallbackInfo&);
 
     static Napi::Function GetClass(Napi::Env);
 
