@@ -1,0 +1,17 @@
+{
+  "name": "ble_mm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "gypfile": true,
+  "scripts": {
+    "start": "node index.js",
+    "build": "node-gyp rebuild",
+    "clean": "node-gyp clean"
+  },
+  "dependencies": {
+    "node-addon-api": "3.1.0",
+    "node-gyp": "7.1.2"
+  }
+}
