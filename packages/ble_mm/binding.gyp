@@ -2,13 +2,10 @@
     "targets": [
         {
             'target_name': 'ble_mm',
-            "sources": [
-                "src/binding.mm",
-                "src/CBCentralManagerDelegate.mm",
-            ],
+            'sources': ['src/napi_objc.mm', 'src/ble_manager.mm', 'src/objc_cpp.mm', 'src/callbacks.cc'],
             'cflags!': ['-fno-exceptions'],
             'cflags_cc!': ['-fno-exceptions'],
-            'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")"],
+            'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")", "<!@(node -p \"require('napi-thread-safe-callback').include\")"],
             'dependencies': ["<!(node -p \"require('node-addon-api').gyp\")"],
             'link_settings': {
                 'libraries': [
