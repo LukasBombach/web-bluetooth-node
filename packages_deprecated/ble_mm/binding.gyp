@@ -2,10 +2,10 @@
     "targets": [
         {
             'target_name': 'ble_mm',
-            'sources': ['src/napi_objc.mm', 'src/ble_manager.mm', 'src/objc_cpp.mm', 'src/callbacks.cc'],
+            'sources': ["src/binding.mm", "src/ble_manager.mm"],
             'cflags!': ['-fno-exceptions'],
             'cflags_cc!': ['-fno-exceptions'],
-            'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")", "<!@(node -p \"require('napi-thread-safe-callback').include\")"],
+            'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")"],
             'dependencies': ["<!(node -p \"require('node-addon-api').gyp\")"],
             'link_settings': {
                 'libraries': [
@@ -16,7 +16,7 @@
             'xcode_settings': {
                 'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
                 'CLANG_CXX_LIBRARY': 'libc++',
-                'MACOSX_DEPLOYMENT_TARGET': '10.7'
+                'MACOSX_DEPLOYMENT_TARGET': '10.13'
             },
             'msvs_settings': {
                 'VCCLCompilerTool': {'ExceptionHandling': 1},

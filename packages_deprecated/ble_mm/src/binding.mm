@@ -1,8 +1,9 @@
 #include <napi.h>
-#include "CBCentralManagerDelegate.h"
+#include "ble_manager.h"
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
-    CBCentralManagerDelegate::Init(env, exports);
+    // BLEManager::init(env, exports);
+    [BLEManager getClass];
     return exports;
 }
 

@@ -11,3 +11,4 @@ class CBCentralManagerDelegate : public Napi::ObjectWrap<CBCentralManagerDelegat
         static Napi::FunctionReference constructor;
         CBCentralManager *centralManager;
 };
+
