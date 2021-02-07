@@ -7,6 +7,7 @@
 @interface CBDelegate : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate> {}
 
 @property (strong) CBCentralManager *centralManager;
+@property dispatch_queue_t dispatchQueue;
 
 - (instancetype)init;
 - (void)scan: (NSArray<NSString*> *)serviceUUIDs allowDuplicates: (BOOL)allowDuplicates;

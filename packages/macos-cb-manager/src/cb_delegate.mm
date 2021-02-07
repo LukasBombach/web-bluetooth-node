@@ -4,7 +4,8 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+        self.dispatchQueue = dispatch_queue_create("CBQueue", 0);
+        self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:self.dispatchQueue];
     }
     return self;
 }
