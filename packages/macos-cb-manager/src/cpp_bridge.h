@@ -1,7 +1,7 @@
 #pragma once
 
 #include <napi.h>
-#include "cb_delegate.h"
+#include "ble_manager.h"
 
 class CPPBridge : public Napi::ObjectWrap<CPPBridge>
 {
@@ -12,5 +12,5 @@ public:
     static Napi::Function GetClass(Napi::Env);
 
 private:
-    CBDelegate* cbDelegate;
+    BLEManager* manager;
 };

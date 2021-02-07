@@ -1,6 +1,6 @@
-#include "cb_delegate.h"
+#include "ble_manager.h"
 
-@implementation CBDelegate
+@implementation BLEManager
 
 - (instancetype)init {
     if (self = [super init]) {

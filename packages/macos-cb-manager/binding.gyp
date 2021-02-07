@@ -2,7 +2,7 @@
     "targets": [
         {
             'target_name': 'ble_mm',
-            'sources': ["src/cb_delegate.mm", "src/cpp_bridge.mm"],
+            'sources': ["src/ble_manager.mm", "src/cpp_bridge.mm"],
             'cflags!': ['-fno-exceptions'],
             'cflags_cc!': ['-fno-exceptions'],
             'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")"],

@@ -1,11 +1,11 @@
-#include "cb_delegate.h"
+#include "ble_manager.h"
 #include "cpp_bridge.h"
 
 CPPBridge::CPPBridge(const Napi::CallbackInfo& info) : ObjectWrap(info) {
 }
 
 Napi::Value CPPBridge::Init(const Napi::CallbackInfo& info) {
-    cbDelegate = [[CBDelegate alloc] init];
+    manager = [[BLEManager alloc] init];
     return Napi::Value();
 }
 

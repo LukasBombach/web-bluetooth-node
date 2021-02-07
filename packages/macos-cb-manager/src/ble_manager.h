@@ -4,7 +4,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #include <napi.h>
 
-@interface CBDelegate : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate> {}
+@interface BLEManager : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate> {}
 
 @property (strong) CBCentralManager *centralManager;
 @property dispatch_queue_t dispatchQueue;
