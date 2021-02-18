@@ -2,8 +2,9 @@
 
 @implementation BLEManager
 
-- (instancetype)init {
+- (instancetype)init: (const Napi::Value&) receiver with: (const Napi::Function&) callback {
     if (self = [super init]) {
+        self->emit.Wrap(receiver, callback);
         self.dispatchQueue = dispatch_queue_create("CBQueue", 0);
         self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:self.dispatchQueue];
     }
@@ -16,8 +17,10 @@
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     if (central.state == CBManagerStatePoweredOn ){
         NSLog(@"poweredOn");
+        emit.RadioState("poweredOn");
     } else {
         NSLog(@"poweredOff");
+        emit.RadioState("poweredOff");
     }
 }
 

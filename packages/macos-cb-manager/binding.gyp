@@ -2,10 +2,11 @@
     "targets": [
         {
             'target_name': 'ble_mm',
-            'sources': ["src/ble_manager.mm", "src/cpp_bridge.mm"],
+            'sources': ["src/ble_manager.mm", "src/cpp_bridge.mm", "src/emit.cc"],
             'cflags!': ['-fno-exceptions'],
             'cflags_cc!': ['-fno-exceptions'],
             'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")"],
+            'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")", "<!@(node -p \"require('napi-thread-safe-callback').include\")"],
             'dependencies': ["<!(node -p \"require('node-addon-api').gyp\")"],
             'link_settings': {
                 'libraries': [

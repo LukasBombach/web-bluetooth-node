@@ -3,7 +3,7 @@
 #include <napi.h>
 #include "ble_manager.h"
 
-class CPPBridge : public Napi::ObjectWrap<CPPBridge>
+/* class CPPBridge : public Napi::ObjectWrap<CPPBridge>
 {
 public:
     CPPBridge(const Napi::CallbackInfo&);
@@ -13,4 +13,14 @@ public:
 
 private:
     BLEManager* manager;
+}; */
+
+class CPPBridge : public Napi::ObjectWrap<CPPBridge> {
+    public:
+        static Napi::Object Init(Napi::Env env, Napi::Object exports);
+        CPPBridge(const Napi::CallbackInfo& info);
+
+    private:
+        static Napi::FunctionReference constructor;
+        BLEManager* manager;
 };

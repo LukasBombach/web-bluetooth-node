@@ -4,7 +4,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #include <dispatch/dispatch.h>
 
-#include "callbacks.h"
+#include "emit.h"
 
 @interface BLEManager : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate> {
     Emit emit;

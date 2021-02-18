@@ -1,11 +1,4 @@
-//
-//  callbacks.cc
-//  noble-mac-native
-//
-//  Created by Georg Vienna on 30.08.18.
-//
 #include "emit.h"
-
 #include <napi-thread-safe-callback.hpp>
 
 #define _s(val) Napi::String::New(env, val)
@@ -13,7 +6,7 @@
 #define _n(val) Napi::Number::New(env, val)
 #define _u(str) toUuid(env, str)
 
-Napi::String toUuid(Napi::Env& env, const std::string& uuid) {
+/* Napi::String toUuid(Napi::Env& env, const std::string& uuid) {
     std::string str(uuid);
     str.erase(std::remove(str.begin(), str.end(), '-'), str.end());
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
@@ -56,7 +49,7 @@ Napi::Array toArray(Napi::Env& env, const std::vector<std::string>& data) {
         arr.Set(i, _s(data[i]));
     }
     return arr;
-}
+} */
 
 void Emit::Wrap(const Napi::Value& receiver, const Napi::Function& callback) {
     mCallback = std::make_shared<ThreadSafeCallback>(receiver, callback);
@@ -69,6 +62,7 @@ void Emit::RadioState(const std::string& state) {
     });
 }
 
+/*
 void Emit::ScanState(bool start) {
     mCallback->call([start](Napi::Env env, std::vector<napi_value>& args) {
         // emit('scanStart') emit('scanStop')
@@ -222,3 +216,4 @@ void Emit::WriteHandle(const std::string & uuid, int descriptorHandle) {
         args = { _s("handleWrite"), _u(uuid), _n(descriptorHandle) };
     });
 }
+ */
