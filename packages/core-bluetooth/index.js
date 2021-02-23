@@ -8,4 +8,8 @@ const cppBridge = new CPPBridge();
 
 cppBridge.on("message", msg => {
   console.log("message", msg);
+
+  if (msg === "poweredOn") {
+    cppBridge.scan();
+  }
 });

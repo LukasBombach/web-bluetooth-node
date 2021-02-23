@@ -6,7 +6,9 @@ Napi::FunctionReference CPPBridge::constructor;
 
 Napi::Object CPPBridge::Init(Napi::Env env, Napi::Object exports) {
     Napi::HandleScope scope(env);
-    Napi::Function func = DefineClass(env, "CPPBridge", {});
+    Napi::Function func = DefineClass(env, "CPPBridge", {
+        CPPBridge::InstanceMethod("scan", &CPPBridge::Scan),
+    });
     constructor = Napi::Persistent(func);
     constructor.SuppressDestruct();
     exports.Set("CPPBridge", func);
