@@ -5,6 +5,7 @@
   "license": "MIT",
   "gypfile": false,
   "scripts": {
+    "go": "clear && yarn build && yarn start",
     "start": "node index.js",
     "build": "node-gyp rebuild",
     "clean": "node-gyp clean"
