@@ -28,7 +28,6 @@
     } else {
         NSLog(@"poweredOff");
         emit.RadioMessage("poweredOff");
-
     }
 }
 

@@ -5,7 +5,6 @@
 #include <napi.h>
 #include "emit.h"
 
-// @interface BLEManager : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate> {}
 @interface BLEManager : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate> {
     Emit emit;
 }
