@@ -7,7 +7,7 @@ class ThreadSafeCallback;
 class Emit {
 public:
     void Wrap(const Napi::Value& receiver, const Napi::Function& callback);
-    void RadioState(const std::string& status);
+    void RadioMessage(const std::string& message);
     // void ScanState(bool start);
     // void Scan(const std::string& uuid, int rssi, const Peripheral& peripheral);
     // void Connected(const std::string& uuid, const std::string& error = "");

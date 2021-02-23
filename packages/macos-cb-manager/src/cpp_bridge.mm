@@ -21,6 +21,14 @@ CPPBridge::CPPBridge(const Napi::CallbackInfo& info)
     manager = [[BLEManager alloc] init:info.This() with:emit];
 }
 
+// startScanning(serviceUuids, allowDuplicates)
+Napi::Value CPPBridge::Scan(const Napi::CallbackInfo& info) {
+    NSArray* array = nil; // getUuidArray(info[0]);
+    auto duplicates = YES; // getBool(info[1], NO);
+    [manager scan:array allowDuplicates:duplicates];
+    return Napi::Value();
+}
+
 /* Napi::Value CPPBridge::Init(const Napi::CallbackInfo& info) {
     Napi::Function emit = info.This().As<Napi::Object>().Get("emit").As<Napi::Function>();
     manager = [[BLEManager alloc] init:info.This() with:emit];

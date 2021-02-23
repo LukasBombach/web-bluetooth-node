@@ -55,10 +55,9 @@ void Emit::Wrap(const Napi::Value& receiver, const Napi::Function& callback) {
     mCallback = std::make_shared<ThreadSafeCallback>(receiver, callback);
 }
 
-void Emit::RadioState(const std::string& state) {
-    mCallback->call([state](Napi::Env env, std::vector<napi_value>& args) {
-        // emit('stateChange', state);
-        args = { _s("stateChange"), _s(state) };
+void Emit::RadioMessage(const std::string& message) {
+    mCallback->call([message](Napi::Env env, std::vector<napi_value>& args) {
+        args = { _s("message"), _s(message) };
     });
 }
 

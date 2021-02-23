@@ -6,6 +6,6 @@ inherits(CPPBridge, EventEmitter);
 
 const cppBridge = new CPPBridge();
 
-cppBridge.on("stateChange", state => {
-  console.log("got event", "stateChange", state);
+cppBridge.on("message", msg => {
+  console.log("message", msg);
 });
