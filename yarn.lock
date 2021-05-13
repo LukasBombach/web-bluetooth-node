@@ -97,6 +97,11 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
+cargo-cp-artifact@^0.1:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/cargo-cp-artifact/-/cargo-cp-artifact-0.1.4.tgz#1551500e6b1422e27c4da6de38deaac0a55466f9"
+  integrity sha512-34yUas8aUENHGdk6JhLkV4ol0GLtP78YgqpsRDmmnpADy9JoTg/DgKM3CRHAeozTRNhKoPaRFhV+BxoqkmoKUA==
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
