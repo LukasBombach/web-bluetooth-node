@@ -49,12 +49,16 @@ impl BleCentral {
 
         // let adapterMutex = &self.adapter;
 
-        let (sender, receiver) = channel();
-        self.adapter.start_scan().unwrap();
-        sender.send(self.event_receiver.recv()).unwrap();
+        // let (sender, receiver) = channel();
+        // self.adapter.start_scan().unwrap();
 
 
-        let handle = thread::spawn(move || {
+        // let receiver_handle = Arc::new(Mutex::new(self.event_receiver));
+
+        let adapter = self.adapter.clone();
+
+
+        let thread_handle = thread::spawn(move || {
             // let adapter = adapterMutex.lock().unwrap();
             // let event_receiver = adapter.event_receiver().unwrap(); 
             // adapter.start_scan().unwrap();
@@ -62,8 +66,14 @@ impl BleCentral {
             // let CentralE = e.lock().unwrap();
             // let receiver = Arc::clone(&event_receiver);
 
+            // receiver_handle.clone();
 
-            while let Ok(event) = receiver.recv().unwrap() {
+            // let receiver = Arc::clone(&receiver_handle).lock().unwrap();
+
+            let event_receiver = adapter.event_receiver().unwrap();
+
+
+            while let Ok(event) = event_receiver.recv() {
                 match event {
                     CentralEvent::DeviceDiscovered(bd_addr) => {
                         println!("DeviceDiscovered: {:?}", bd_addr);
@@ -105,9 +115,11 @@ impl BleCentral {
                 }
             }
         });
-        handle.join().unwrap();
-        thread::sleep(Duration::from_secs(2));
-        self.stop_scan()
+        // sender.send(self.event_receiver.recv()).unwrap();
+
+        thread_handle.join().unwrap();
+        // thread::sleep(Duration::from_secs(2));
+        // self.stop_scan()
     }
 
     fn stop_scan(&self) -> () {
