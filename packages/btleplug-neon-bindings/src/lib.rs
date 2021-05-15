@@ -1,3 +1,4 @@
+extern crate neon;
 use neon::prelude::*;
 use std::thread;
 
@@ -88,6 +89,14 @@ impl BleCentral {
 
 }
 
+#[macro_use]
+macro_rules! declare_types {
+    pub class JsBleCentral for BleCentral {
+        init(mut cx) {
+            Ok(BleCentral::new())
+        }
+    }
+}
 
 fn ble(mut cx: FunctionContext) -> JsResult<JsUndefined> {
     let central = BleCentral::new();
