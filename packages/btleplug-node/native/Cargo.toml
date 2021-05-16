@@ -1,0 +1,18 @@
+[package]
+name = "btleplug-node"
+version = "0.1.0"
+authors = ["Lukas Bombach <lukas.bombach@googlemail.com>"]
+license = "MIT"
+build = "build.rs"
+edition = "2018"
+exclude = ["artifacts.json", "index.node"]
+
+[lib]
+name = "btleplug_node"
+crate-type = ["cdylib"]
+
+[build-dependencies]
+neon-build = "0.8.1"
+
+[dependencies]
+neon = "0.8.1"
