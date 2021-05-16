@@ -1,3 +1,5 @@
-var addon = require('../native');
+const addon = require("../native/index.node");
 
-console.log(addon.hello());
+const john = new addon.Employee(1, "John");
+console.log("id", john.id());
+console.log("name", john.name());
