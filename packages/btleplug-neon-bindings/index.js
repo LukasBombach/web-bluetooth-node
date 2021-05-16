@@ -1,3 +1,7 @@
-const { convertStructToJsObject } = require(".");
+const addon = require(".");
 
-console.log(convertStructToJsObject());
+const { User } = addon;
+
+new User(0, "John", "Doe", "johndoe@gmail.com");
+
+module.exports = addon;
