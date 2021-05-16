@@ -1,3 +1,3 @@
-const { ble } = require(".");
+const { convertStructToJsObject } = require(".");
 
-console.log(ble());
+console.log(convertStructToJsObject());
