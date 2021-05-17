@@ -1,12 +1,11 @@
 {
   "name": "btleplug-node",
   "version": "0.1.0",
-  "description": "",
   "main": "lib/index.js",
   "author": "Lukas Bombach <lukas.bombach@googlemail.com>",
   "license": "MIT",
   "dependencies": {
-    "neon-cli": "^0.8.1"
+    "neon-cli": "0.8.1"
   },
   "scripts": {
     "dev": "yarn build && yarn start",
